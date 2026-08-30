@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Disables zoom on tap while keeping mobile responsiveness crisp -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Set in Stone</title>
+  <!-- Tailwind CSS CDN for presentation styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body class="min-h-screen bg-[#2C2C2E] flex flex-col items-center py-8 px-4 font-sans text-gray-100 transition-colors duration-500 overflow-y-auto relative">
+
+
+  <!-- Centralized Top Right Floating Buttons Wrapper -->
+  <div id="floating-buttons-container" class="fixed top-4 right-4 z-40 flex gap-2.5 sm:gap-4">
+   
+    <!-- Floating Real-Life Round Counter Button (Moved to the left) -->
+    <button id="floating-action-btn" onclick="window.toggleIrlCounterPhase()" class="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-[#ede2d3] hover:bg-[#dfc3a3] border-4 border-[#dfc3a3] text-[#2C2C2E] rounded-3xl shadow-2xl transition-all transform active:scale-95 p-3 text-center select-none font-sans">
+      <!-- Icon Wrapper -->
+      <span id="floating-btn-icon" class="text-[#2C2C2E]">
+        <!-- Initial Clock Icon -->
+        <svg class="w-8 h-8 sm:w-12 sm:h-12 mb-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </span>
+      <!-- Label Wrapper -->
+      <span id="floating-btn-label" class="text-[10px] sm:text-[11px] md:text-3xs font-black uppercase tracking-wider leading-tight">
+        Round<br/>Counter
+      </span>
+    </button>
+
+
+    <!-- Floating "Surge" Button (Placed next to it) -->
+    <button id="surge-action-btn" onclick="window.toggleSurgeMode()" class="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-[#ede2d3] hover:bg-[#dfc3a3] border-4 border-[#dfc3a3] text-[#2C2C2E] rounded-3xl shadow-2xl transition-all transform active:scale-95 p-3 text-center select-none font-sans">
+      <!-- Icon Wrapper -->
+      <span id="surge-btn-icon" class="text-[#2C2C2E]">
+        <!-- Lightning Bolt SVG Icon -->
+        <svg class="w-8 h-8 sm:w-12 sm:h-12 mb-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </span>
+      <!-- Label Wrapper -->
+      <span id="surge-btn-label" class="text-[10px] sm:text-[11px] md:text-xs font-black uppercase tracking-wider leading-tight">
+        Surge
+      </span>
+    </button>
+
+
+  </div>
+
+
+  <!-- Header Area (Holds classic logo and is hidden during Surge view) -->
+  <div id="game-header-area" class="w-full max-w-5xl text-center mb-6 relative flex flex-col items-center select-none min-h-[140px] justify-center">
+    <div id="logo-classic-set" class="flex flex-col items-center transition-all duration-300">
+      <img
+        id="custom-logo"
+        src="assets/logo.png"
+        alt="Set in Stone logo"
+        class="mb-3 drop-shadow-md"
+        onerror="this.style.display='none'"
+      />
+      <h1 class="text-4xl md:text-5xl font-black tracking-widest drop-shadow-sm uppercase mb-1">
+        <span class="text-[#f8b572]">Set</span>
+        <span class="text-[#8dd586]">in</span>
+        <span class="text-[#b597f0]">Stone</span>
+      </h1>
+    </div>
+  </div>
+
+
+  <!-- Dynamic Application Container -->
+  <div id="app" class="w-full max-w-6xl flex flex-col items-center select-none font-medium font-sans"></div>
+
+
+  <!-- Dynamic Turn Order Modal Container Overlay -->
+  <div id="irl-turn-order-container" class="z-50"></div>
+
+
+  <!-- Firebase Script SDK Hooks -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+
+  <script src="bot.js"></script>
+  <script src="firebase.js"></script>
+  <script src="game-config.js"></script>
+  <script src="network.js"></script>
+  <script src="render.js"></script>
+  <script src="state.js"></script>
+</body>
+</html>

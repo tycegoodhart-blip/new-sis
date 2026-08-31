@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,10 +13,10 @@
 <body class="min-h-screen bg-[#2C2C2E] flex flex-col items-center py-8 px-4 font-sans text-gray-100 transition-colors duration-500 overflow-y-auto relative">
 
 
-  <!-- Centralized Top Right Floating Buttons Wrapper -->
-  <div id="floating-buttons-container" class="fixed top-4 right-4 z-40 flex gap-2.5 sm:gap-4">
+  <!-- Floating Buttons Split Across Top Corners -->
+  <div id="floating-buttons-container" class="fixed top-4 left-4 right-4 z-40 flex justify-between items-start gap-2.5 sm:gap-4">
    
-    <!-- Floating Real-Life Round Counter Button (Moved to the left) -->
+    <!-- Floating Real-Life Round Counter Button -->
     <button id="floating-action-btn" onclick="window.toggleIrlCounterPhase()" class="flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-[#ede2d3] hover:bg-[#dfc3a3] border-4 border-[#dfc3a3] text-[#2C2C2E] rounded-3xl shadow-2xl transition-all transform active:scale-95 p-3 text-center select-none font-sans">
       <!-- Icon Wrapper -->
       <span id="floating-btn-icon" class="text-[#2C2C2E]">
@@ -56,7 +56,7 @@
     <div id="logo-classic-set" class="flex flex-col items-center transition-all duration-300">
       <img
         id="custom-logo"
-        src="logo.png"
+        src="assets/logo.png"
         alt="Set in Stone logo"
         class="mb-3 drop-shadow-md"
         onerror="this.style.display='none'"
